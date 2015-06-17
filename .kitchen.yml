@@ -1,0 +1,41 @@
+---
+driver_plugin: joyent
+driver_config:
+  joyent_username: <%= ENV['MANTA_USER'] %>
+  joyent_keyfile: "<%= ENV['HOME'] %>/.ssh/id_rsa"
+  joyent_keyname: <%= ENV['MANTA_KEY_ID'] %>
+  joyent_url: <%= ENV['JOYENT_API_URL'] %>
+provisioner:
+  name: chef_zero
+  sudo: true
+
+platforms:
+- name: smartos_base-64_14.3.0
+  driver_config:
+    joyent_image_id: 62f148f8-6e84-11e4-82c5-efca60348b9f
+    joyent_flavor_id: g3-highcpu-1.75-smartos
+  provisioner:
+    require_chef_omnibus: true
+    chef_omnibus_url: https://raw.github.com/wanelo-chef/chef-bootstrap/master/latest.sh
+
+- name: lx-ubuntu-14.04_20150601
+  driver_config:
+    joyent_image_id: a21a64a0-0809-11e5-a64f-ff80e8e8086f
+    joyent_flavor_id: g3-highcpu-1.75-kvm
+    username: root
+  provisioner:
+    require_chef_omnibus: "11.16.4"
+
+- name: ubuntu-certified-14.10_20141022.3
+  driver_config:
+    joyent_image_id: 47c62485-9803-4d81-9023-c987f5100aff
+    joyent_flavor_id: g3-highcpu-1.75-kvm
+    username: ubuntu
+  provisioner:
+    require_chef_omnibus: "11.16.4"
+
+suites:
+  - name: default
+    run_list:
+      - recipe[openjdk::default]
+    attributes:

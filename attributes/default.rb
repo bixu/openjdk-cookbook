@@ -1,0 +1,1 @@
+node.default['openjdk']['version'] = 7

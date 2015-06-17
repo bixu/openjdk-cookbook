@@ -8,7 +8,7 @@ version '0.1.0'
 
 depends 'apt'
 
-%w{ubuntu smartos}.each do |os|
+%w{smartos ubuntu}.each do |os|
   supports os
 end
 

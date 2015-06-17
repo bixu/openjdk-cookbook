@@ -1,1 +1,1 @@
-node.default['openjdk']['version'] = 7
+default['openjdk']['version'] = 7

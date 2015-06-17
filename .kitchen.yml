@@ -35,7 +35,18 @@ platforms:
     require_chef_omnibus: "11.16.4"
 
 suites:
-  - name: default
+  - name: openjdk6
     run_list:
       - recipe[openjdk::default]
     attributes:
+      openjdk:
+        version: 6
+    excludes:
+      - smartos_base-64_14.3.0
+
+  - name: openjdk7
+    run_list:
+      - recipe[openjdk::default]
+    attributes:
+      openjdk:
+        version: 7

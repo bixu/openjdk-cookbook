@@ -7,3 +7,10 @@ long_description 'Installs/Configures openjdk'
 version '0.1.0'
 
 depends 'apt'
+
+%w{ubuntu smartos}.each do |os|
+  supports os
+end
+
+source_url       'https://github.com/bixu/openjdk'
+issues_url       'https://github.com/bixu/openjdk/issues'

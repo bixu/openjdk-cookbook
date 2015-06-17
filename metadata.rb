@@ -12,5 +12,5 @@ depends 'apt'
   supports os
 end
 
-source_url       'https://github.com/bixu/openjdk'
-issues_url       'https://github.com/bixu/openjdk/issues'
+source_url       'https://github.com/bixu/openjdk-cookbook'
+issues_url       'https://github.com/bixu/openjdk-cookbook/issues'
